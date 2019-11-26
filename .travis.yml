@@ -1,0 +1,11 @@
+language: generic 
+
+sudo: required
+services: 
+  - docker
+
+before_install:
+  - docker build  -t  salilarora/docker-react -f DockerfileDev .
+
+script:
+  - docker run -e CI=true salilarora/docker-react npm run test
